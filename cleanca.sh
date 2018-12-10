@@ -12,7 +12,7 @@ find $HOME -mindepth 1 -maxdepth 1 -name ".*zcompdump*" -print0 | xargs -0 /bin/
 find $HOME/.Trash -mindepth 1 -maxdepth 1 -print0 | xargs -0 /bin/rm -rf
 
 #This will delete TELEGRAM media cache that is older than 3 days
-find $HOME/Library/Group\ Containers/*.Telegram/account-*/postbox/media/ -maxdepth 1 -mtime +3 -print0 | xargs -0 /bin/rm -rf
+find $HOME/Library/Group\ Containers/*.Telegram/account-*/postbox/media/ -mindepth 1 -maxdepth 1 -mtime +3 -print0 | xargs -0 /bin/rm -rf
 
 AFTER=$(df -h | grep "$(whoami)" | awk {'print $4'})
 
